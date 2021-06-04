@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: django-yaml-field
+Version: 0.0.1
+Summary: Same as Django JSONField but represent it as YAML (internally stores as JSON)
+Home-page: https://github.com/null-none/django_yaml_field
+Author: Example Author
+Author-email: author@example.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/null-none/django_yaml_fieldissues
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# django-yamlfield
+Same as Django JSONField but represent it as YAML (internally stores as JSON)
+
+
+
+```python
+
+from django_yaml_field.fields import YAMLField
+
+
+yaml = YAMLField()
+```
+
