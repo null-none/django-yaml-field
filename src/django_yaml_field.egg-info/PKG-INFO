@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: django-yaml-field
-Version: 0.0.1
+Version: 0.0.2
 Summary: Same as Django JSONField but represent it as YAML (internally stores as JSON)
 Home-page: https://github.com/null-none/django_yaml_field
-Author: Example Author
-Author-email: author@example.com
+Author: Kalinin Mitko
+Author-email: kalinin.mitko@gmail.com
 License: UNKNOWN
 Project-URL: Bug Tracker, https://github.com/null-none/django_yaml_fieldissues
 Platform: UNKNOWN
@@ -19,12 +19,20 @@ License-File: LICENSE
 Same as Django JSONField but represent it as YAML (internally stores as JSON)
 
 
+### Example
+
 
 ```python
 
+from django.db import models
 from django_yaml_field.fields import YAMLField
 
 
-yaml = YAMLField()
+class ModelName(models.Model):
+	yaml = YAMLField()
 ```
+
+### License
+
+MIT
 
