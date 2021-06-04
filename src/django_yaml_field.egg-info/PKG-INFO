@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-yaml-field
-Version: 0.0.2
+Version: 0.0.3
 Summary: Same as Django JSONField but represent it as YAML (internally stores as JSON)
 Home-page: https://github.com/null-none/django_yaml_field
 Author: Kalinin Mitko
@@ -15,9 +15,14 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 
-# django-yamlfield
+# django-yaml-field
 Same as Django JSONField but represent it as YAML (internally stores as JSON)
 
+### Pip install
+
+```bash
+pip install django-yaml-field
+```
 
 ### Example
 

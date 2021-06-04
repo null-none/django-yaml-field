@@ -1,6 +1,11 @@
-# django-yamlfield
+# django-yaml-field
 Same as Django JSONField but represent it as YAML (internally stores as JSON)
 
+### Pip install
+
+```bash
+pip install django-yaml-field
+```
 
 ### Example
 
