@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-yaml-field
-Version: 0.0.4
+Version: 0.0.5
 Summary: Same as Django JSONField but represent it as YAML (internally stores as JSON)
 Home-page: https://github.com/null-none/django_yaml_field
 Author: Kalinin Mitko

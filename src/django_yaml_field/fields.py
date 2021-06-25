@@ -1,4 +1,5 @@
-from django.contrib.postgres import fields, forms
+from django import forms
+from django.db import models
 import yaml
 from django.utils.translation import gettext_lazy as _
 
@@ -49,7 +50,7 @@ class YAMLFormField(forms.Textarea):
         return yaml.dump(value, default_flow_style=False)
 
 
-class YAMLField(fields.Textarea):
+class YAMLField(models.TextField):
     def formfield(self, **kwargs):
         defaults = {'form_class': YAMLFormField}
         defaults.update(kwargs)
