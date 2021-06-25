@@ -10,7 +10,7 @@ class YAMLString(str):
     pass
 
 
-class YAMLFormField(forms.JSONField):
+class YAMLFormField(forms.Textarea):
     default_error_messages = {
         'invalid': _("'%(value)s' value must be valid YAML."),
     }
@@ -49,7 +49,7 @@ class YAMLFormField(forms.JSONField):
         return yaml.dump(value, default_flow_style=False)
 
 
-class YAMLField(fields.JSONField):
+class YAMLField(fields.Textarea):
     def formfield(self, **kwargs):
         defaults = {'form_class': YAMLFormField}
         defaults.update(kwargs)

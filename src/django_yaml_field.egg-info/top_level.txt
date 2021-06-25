@@ -1,1 +1,1 @@
-django_yaml_field_pkg
+django_yaml_field
