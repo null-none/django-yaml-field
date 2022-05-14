@@ -53,6 +53,4 @@ class YAMLFormField(forms.Textarea):
 
 class YAMLField(models.JSONField):
     def formfield(self, **kwargs):
-        defaults = {'form_class': YAMLFormField}
-        defaults.update(kwargs)
-        return super().formfield(**defaults)
+        return super().formfield(form_class=YAMLFormField, choices_form_class=None, **kwargs)
