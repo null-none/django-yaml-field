@@ -2,12 +2,10 @@ Metadata-Version: 2.1
 Name: django-yaml-field
 Version: 0.0.5
 Summary: Same as Django JSONField but represent it as YAML (internally stores as JSON)
-Home-page: https://github.com/null-none/django_yaml_field
+Home-page: https://github.com/null-none/django-yaml-field
 Author: Kalinin Mitko
 Author-email: kalinin.mitko@gmail.com
-License: UNKNOWN
-Project-URL: Bug Tracker, https://github.com/null-none/django_yaml_fieldissues
-Platform: UNKNOWN
+Project-URL: Bug Tracker, https://github.com/null-none/django-yaml-field/issues
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
@@ -40,4 +38,3 @@ class ModelName(models.Model):
 ### License
 
 MIT
-

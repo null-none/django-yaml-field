@@ -3,6 +3,7 @@ from django.db import models
 import yaml
 from django.utils.translation import gettext_lazy as _
 
+
 class InvalidYAMLInput(str):
     pass
 
@@ -50,7 +51,7 @@ class YAMLFormField(forms.Textarea):
         return yaml.dump(value, default_flow_style=False)
 
 
-class YAMLField(models.TextField):
+class YAMLField(models.JSONField):
     def formfield(self, **kwargs):
         defaults = {'form_class': YAMLFormField}
         defaults.update(kwargs)
