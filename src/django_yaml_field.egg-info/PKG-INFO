@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: django-yaml-field
-Version: 0.0.5
+Version: 0.0.6
 Summary: Same as Django JSONField but represent it as YAML (internally stores as JSON)
 Home-page: https://github.com/null-none/django-yaml-field
 Author: Kalinin Mitko
@@ -28,11 +28,29 @@ pip install django-yaml-field
 ```python
 
 from django.db import models
-from django_yaml_field.fields import YAMLField
+from django_yaml_field import YAMLField
 
 
 class ModelName(models.Model):
 	yaml = YAMLField()
+```
+
+Allows querying 
+
+https://docs.djangoproject.com/en/4.0/topics/db/queries/#querying-jsonfield
+
+
+### Syntax Highlight
+
+If you want a nice syntax highlight in form, you can use with [django-ace](https://github.com/django-ace/django-ace)
+
+```python
+from django_ace import AceWidget
+
+@admin.register(ModelName)
+class ModelName(admin.ModelAdmin):
+
+	formfield_overrides = {YAMLField: {"widget": AceWidget(mode="yaml")}}
 ```
 
 ### License
