@@ -3,6 +3,7 @@ from django.db import models
 import yaml
 from django.utils.translation import gettext_lazy as _
 
+
 class InvalidYAMLInput(str):
     pass
 
@@ -11,9 +12,9 @@ class YAMLString(str):
     pass
 
 
-class YAMLFormField(forms.Textarea):
+class YAMLFormField(forms.JSONField):
     default_error_messages = {
-        'invalid': _("'%(value)s' value must be valid YAML."),
+        "invalid": _("'%(value)s' value must be valid YAML."),
     }
 
     def to_python(self, value):
@@ -24,12 +25,12 @@ class YAMLFormField(forms.Textarea):
         elif isinstance(value, (list, dict, int, float, YAMLString)):
             return value
         try:
-            converted = yaml.load(value)
+            converted = yaml.safe_load(value)
         except yaml.YAMLError:
             raise forms.ValidationError(
-                self.error_messages['invalid'],
-                code='invalid',
-                params={'value': value},
+                self.error_messages["invalid"],
+                code="invalid",
+                params={"value": value},
             )
         if isinstance(converted, str):
             return YAMLString(converted)
@@ -40,18 +41,23 @@ class YAMLFormField(forms.Textarea):
         if self.disabled:
             return initial
         try:
-            return yaml.load(data)
+            return yaml.safe_load(data)
         except yaml.YAMLError:
             return InvalidYAMLInput(data)
 
     def prepare_value(self, value):
         if isinstance(value, InvalidYAMLInput):
             return value
-        return yaml.dump(value, default_flow_style=False)
+        return yaml.dump(value)
 
 
-class YAMLField(models.TextField):
+class YAMLField(models.JSONField):
     def formfield(self, **kwargs):
-        defaults = {'form_class': YAMLFormField}
-        defaults.update(kwargs)
-        return super().formfield(**defaults)
+        return super().formfield(
+            **{
+                "form_class": YAMLFormField,
+                "encoder": self.encoder,
+                "decoder": self.decoder,
+                **kwargs,
+            }
+        )
